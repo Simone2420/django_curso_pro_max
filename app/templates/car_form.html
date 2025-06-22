@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Car Form{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
