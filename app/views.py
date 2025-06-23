@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from app.models import Car
+from django.views.generic.base import TemplateView
 
 # Create your views here.
 def index(request):
@@ -40,3 +41,11 @@ def update_car(request, car_id):
         "title": "Update Car",
         "car": car
     })
+class CarList(TemplateView): 
+    template_name = "view_cars.html"
+    def get_context_data(self):
+        carlist = Car.objects.all()
+        context = {
+            "cars": carlist
+        }
+        return context
